@@ -1,0 +1,171 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srinivas Forming Jewelry - Invoice</title>
+  <style>
+    body {
+      background: linear-gradient(45deg, deeppink, hotpink);
+      font-family: Arial, cursive;
+      padding: 40px; /* Reduced padding for better fit */
+      margin: 0; /* Remove any default margin */
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      table-layout: auto; /* Ensure table fits inside its container */
+    }
+
+    table,
+    th,
+    td {
+      border: 2px solid #aaa;
+    }
+
+    th,
+    td {
+      padding: 16px;
+      text-align: left;
+      overflow-wrap: break-word; /* Allow text to wrap inside cells */
+    }
+
+    .total {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .section-title {
+      background-color: mediumvioletred;
+      color : hotpink;
+      padding: 20px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      background-color: pink;
+      color: palevioletred;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition:1s ease-in;
+    }
+    
+    button:hover{
+      opacity: 0.5s;
+      background-color: palevioletred;
+      color : pink;
+      
+    }
+    
+    input[type="number"],
+    input[type="text"],
+    input[type="date"] {
+        width: calc(100% - 32px);
+        box-sizing: border-box; /* Ensure proper width */
+        padding-left: 16px; /* Add padding for aesthetics */
+        margin-top: 8px; /* Provide consistent spacing */
+        margin-bottom: 8px; /* Provide consistent spacing */
+        max-width: calc(100% - 32px); /* Prevent overflowing */
+        overflow-wrap: break-word; /* Allow long text to wrap */
+    }
+    
+  </style>
+</head>
+
+<body>
+
+<h2>Invoice</h2>
+
+<p><strong>Customer Name:</strong> <input type="text" id="customerName" /></p>
+<p><strong>Mobile Number:</strong> <input type="tel" id="mobileNumber" /></p>
+<p><strong>Bill No:</strong> <input type="text" id="billNo" /> &nbsp;
+   <strong>Date:</strong> <input type="date" id="invoiceDate" />
+</p>
+
+<div class="section-title">New Purchase</div>
+<table id="purchaseTable">
+<tr>
+<th>Description</th>
+<th>Qty</th>
+<th>Amount (₹)</th>
+</tr>
+<tr>
+<td><input type="text" value="Tops Fancy" /></td>
+<td><input type="number" value="1" min="1" step="1" /></td>
+<td><input type="number" value="36000" class="purchaseAmount" min="0" step=".01"/></td>
+</tr>
+</table>
+
+<div class="section-title">Replacement (Deduction)</div>
+<table id="replacementTable">
+<tr>
+<th>Description</th>
+<th>Qty</th>
+<th>Deduction (₹)</th>
+</tr>
+<tr>
+<td><input type="text" value="Old Tops Fancy" /></td>
+<td><input type="number" value="1" min="0" step="1"/></td>
+<td><input type="number" value="5000" class="replacementAmount" min "0" step=".01"/></td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td class="total" id="finalAmount">final amount payable  : ₹0</td>
+</tr>
+<tr>
+<td class="total" id="replacementTotal">Replacement Deduction: ₹0</td>
+</tr>
+<tr>
+<td class="total" id="purchaseTotal">total: ₹0</td>
+</tr>
+</table>
+
+<p><strong>Payment Mode:</strong> <input type="text" placeholder="Cash / Card / UPI" /></p>
+<p style="text-align:right;">Customer Signature: ____________________</p>
+
+<p style='text-align:center;'>Thank you for shopping with Srinivas Forming Jewelry!</p>
+
+<div class='buttons'>
+<button onclick='calculate()'>Calculate</button> 
+<button onclick='window.print()'>Print / Save PDF</button> 
+</div>
+
+<script> 
+function calculate() { 
+let purchaseTotal = 0; 
+document.querySelectorAll('.purchaseAmount').forEach(input => { purchaseTotal += parseFloat(input.value) || 0; }); 
+ 
+let replacementTotal = 0; 
+document.querySelectorAll('.replacementAmount').forEach(input => { replacementTotal += parseFloat(input.value) || 0; }); 
+ 
+const finalAmount = purchaseTotal - replacementTotal; 
+ 
+document.getElementById('purchaseTotal').textContent = "Total: ₹" + purchaseTotal.toLocaleString(); 
+document.getElementById('replacementTotal').textContent = "Replacement Deduction: ₹"+ replacementTotal.toLocaleString(); 
+document.getElementById('finalAmount').textContent = "Final Amount Payable: ₹"+ finalAmount.toLocaleString(); 
+
+}
+window.onload = calculate; // Auto-calculate on load
+ </script>
+
+ </body>
+
+ </html>  
