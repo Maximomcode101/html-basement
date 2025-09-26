@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emmax Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: green;
+  color: red;
+  line-height:1.5;
+  padding: 20px;
+}
+header {
+  background-color: lightyellow;
+  color: blue;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  font-style: italic;
+}
+section {
+  margin: 40px 0;
+  padding: 20px;
+  background-color: darkblue;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid brown;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+input, textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid burlywood;
+  border-radius: 6px;
+}
+
+.sub {
+  padding: 10px;
+  background-color: burlywood;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:all 0.3s ease;
+}
+
+.sub:hover {
+  opacity: 1s;
+  background-color:seegreen;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color:seagreen;
+  border-top: 1px solid gold;
+}
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    background-color: lightcoral;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    background-color: linen;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Emmax</h1>
+    <p>Web Developer in Training</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>My name is Atitebi Emmanuel,i am a 13 years old i live in somolu,Lagos State,Nigeria.<br>I'm a passionate learner aiming to master HTML, CSS, and JavaScript. My goal is to become an ethical hacker and pro developer.<br>I have created five website using html,css, and created two website using html,css,javascript with the help of chatgpt, and i am creating one right now.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>Personal Profile Page ✅</li>
+      <li>10 Websites Challenge 💪</li>
+      <li>More Coming Soon...</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <table border="1">
+      <tr>
+        <th>Skill</th>
+        <th>Level</th>
+      </tr>
+      <tr>
+        <td>HTML</td>
+        <td>✅ Complete</td>
+      </tr>
+      <tr>
+        <td>CSS</td>
+        <td>✅ Complete</td>
+      </tr>
+      <tr>
+        <td>JavaScript</td>
+        <td>🔜 Learning Soon</td>
+      </tr>
+    </table>
+  </section>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email or Phone number" placeholder="Your Email or Phone number" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button class="sub" type="submit">Send</button>
+    </form>
+  </section>
+    <footer>
+    <p>&copy; 2025 Emmax. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
